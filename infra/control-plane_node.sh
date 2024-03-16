@@ -30,18 +30,18 @@ echo "alias ka='kubectl apply -f'" >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
 
 # git clone prom code
-git clone https://github.com/SeongJuMoon/_Lecture_prom_learning.kit.git
-mv /home/vagrant/_Lecture_prom_learning.kit $HOME
-find $HOME/_Lecture_prom_learning.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
+git clone https://github.com/SeongJuMoon/rerepo-kafka-handon-lab
+mv /home/vagrant/rerepo-kafka-handon-lab $HOME
+find $HOME/rerepo-kafka-handon-lab -regex ".*\.\(sh\)" -exec chmod 700 {} \;
 
-# make rerepo-prom_learning.kit and put permission
-cat <<EOF > /usr/local/bin/rerepo-prom_learning.kit
+# add reloader
+cat <<EOF > /usr/local/bin/rerepo-kafka-handon-lab
 #!/usr/bin/env bash
-rm -rf $HOME/_Lecture_prom_learning.kit 
-git clone https://github.com/seongjumoon/_Lecture_prom_learning.kit.git $HOME/_Lecture_prom_learning.kit
-find $HOME/_Lecture_prom_learning.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
+rm -rf $HOME/_kafka-handon-lab
+git clone https://github.com/seongjumoon/kafka-handon-lab.git $HOME/kafka-handon-lab
+find $HOME/kafka-handon-lab -regex ".*\.\(sh\)" -exec chmod 700 {} \;
 EOF
-chmod 700 /usr/local/bin/rerepo-prom_learning.kit
+chmod 700 /usr/local/bin/rerepo-kafka-handon-lab
 
 # extended k8s certifications all
 git clone https://github.com/yuyicai/update-kube-cert.git /tmp/update-kube-cert
